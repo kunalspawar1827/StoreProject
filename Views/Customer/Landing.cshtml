@@ -1,0 +1,194 @@
+﻿
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store - Landing Page</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link  rel="stylesheet" href="~/css/Customer/Landing.css"  />
+
+<body>
+    <!-- Product Carousel -->
+@*     <div class="carousel-container">
+        <div class="carousel" id="productCarousel">
+            <div class="carousel-item">
+                <img src="~/Images/earbud.jpg" alt="Wireless Earbuds">
+                <div class="carousel-caption">
+                    <h3>Wireless Earbuds</h3>
+                    <p>Premium Sound Quality</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/smartwatch.jpg" alt="Smart Watch">
+                <div class="carousel-caption">
+                    <h3>Smart Watch</h3>
+                    <p>Stay Connected</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/laptop.jpg" alt="Laptop Stand">
+                <div class="carousel-caption">
+                    <h3>Laptop Stand</h3>
+                    <p>Ergonomic Design</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/mouse.jpg" alt="Wireless Mouse">
+                <div class="carousel-caption">
+                    <h3>Wireless Mouse</h3>
+                    <p>Precision Control</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-button prev" onclick="moveCarousel(-1)">❮</button>
+        <button class="carousel-button next" onclick="moveCarousel(1)">❯</button>
+    </div> *@
+
+    <!-- Categories Section -->
+    <div class="container">
+        <section class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                    <p>Latest gadgets and devices</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                    <p>Trending styles and accessories</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Books</h3>
+                    <p>Best selling books and more</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home & Kitchen</h3>
+                    <p>Everything for your home</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="~/Images/earbud.jpg" alt="Product">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Earbuds</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                        <p class="product-price">$99.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="~/Images/smartwatch.jpg" alt="Product">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Watch</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                        <p class="product-price">$199.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="~/Images/laptop.jpg" alt="Product">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Laptop Stand</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                        <p class="product-price">$29.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="~/Images/mouse.jpg" alt="Product">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Mouse</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                        <p class="product-price">$49.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = 'none');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+        }
+
+        function moveCarousel(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Auto-advance carousel
+        setInterval(() => moveCarousel(1), 5000);
+
+        // Show first slide initially
+        showSlide(0);
+    </script>
+</body>

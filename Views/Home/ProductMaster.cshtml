@@ -1,0 +1,192 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Home/ProductMaster.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Product Management</h1>
+        <!-- Search and Filter Section -->
+        <div class="filter-section">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                <select id="categoryFilter" class="category-select">
+                    <option value="">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="books">Books</option>
+                    <option value="home">Home & Kitchen</option>
+                </select>
+            </div>
+            <button class="add-product-btn">
+                <i class="fas fa-plus"></i> Add Product
+            </button>
+        </div>
+
+        <!-- Products Table -->
+        <div class="table-container">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1001</td>
+                        <td>Wireless Earbuds</td>
+                        <td>Electronics</td>
+                        <td>$99.99</td>
+                        <td>50</td>
+                        <td><span class="status-active">Active</span></td>
+                        <td>
+                            <button class="action-btn edit" onclick="openEditPopup(1001)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn disable">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>Smart Watch</td>
+                        <td>Electronics</td>
+                        <td>$199.99</td>
+                        <td>30</td>
+                        <td><span class="status-active">Active</span></td>
+                        <td>
+                            <button class="action-btn edit" onclick="openEditPopup(1002)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn disable">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>#1003</td>
+                        <td>TShirt</td>
+                        <td>Fashion</td>
+                        <td>$99.99</td>
+                        <td>50</td>
+                        <td><span class="status-active">Active</span></td>
+                        <td>
+                            <button class="action-btn edit" onclick="openEditPopup(1003)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn disable">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- More product rows... -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Edit Product Popup -->
+        <div class="popup" id="editPopup">
+            <div class="popup-content">
+                <h2>Edit Product</h2>
+                <form id="editProductForm">
+                    <div class="form-group">
+                        <label>Product ID</label>
+                        <input type="text" id="productId" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" id="productName">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="productCategory">
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="books">Books</option>
+                            <option value="home">Home & Kitchen</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" id="productPrice" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Stock</label>
+                        <input type="number" id="productStock">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="productDescription" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                        <button type="button" class="cancel-btn" onclick="closeEditPopup()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openEditPopup(productId) {
+            const popup = document.getElementById('editPopup');
+            popup.classList.add('show');
+
+            // Populate form with product data (mock data for demonstration)
+            document.getElementById('productId').value = productId;
+            document.getElementById('productName').value = productId === 1001 ? 'Wireless Earbuds' : 'Smart Watch';
+            document.getElementById('productCategory').value = 'electronics';
+            document.getElementById('productPrice').value = productId === 1001 ? '99.99' : '199.99';
+            document.getElementById('productStock').value = productId === 1001 ? '50' : '30';
+            document.getElementById('productDescription').value = 'Product description here...';
+        }
+
+        function closeEditPopup() {
+            const popup = document.getElementById('editPopup');
+            popup.classList.remove('show');
+        }
+
+        // Close popup when clicking outside
+        window.onclick = function(event) {
+            const popup = document.getElementById('editPopup');
+            if (event.target === popup) {
+                closeEditPopup();
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchText = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.products-table tbody tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchText) ? '' : 'none';
+            });
+        });
+
+        // Category filter
+        document.getElementById('categoryFilter').addEventListener('change', function(e) {
+            const category = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.products-table tbody tr');
+
+            rows.forEach(row => {
+                const rowCategory = row.children[2].textContent.toLowerCase();
+                row.style.display = !category || rowCategory === category ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+
