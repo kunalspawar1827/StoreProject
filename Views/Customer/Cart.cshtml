@@ -1,0 +1,101 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="~/css/Customer/Cart.css">
+ 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+
+        <div class="cart-container">
+            <div class="cart-items">
+                <!-- Sample Cart Items -->
+                <div class="cart-item">
+                    <img src="~/Images/earbud.jpg" alt="Wireless Earbuds" class="item-image">
+                    <div class="item-details">
+                        <h3>Wireless Earbuds</h3>
+                        <p class="item-price">$99.99</p>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(this)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+
+                <div class="cart-item">
+                    <img src="~/Images/smartwatch.jpg" alt="Smart Watch" class="item-image">
+                    <div class="item-details">
+                        <h3>Smart Watch</h3>
+                        <p class="item-price">$199.99</p>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(this)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$299.98</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>$10.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span>$31.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>$340.98</span>
+                </div>
+                <button class="checkout-btn">
+                    Proceed to Checkout
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateQuantity(btn, change) {
+            const input = btn.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value) + change;
+            if (value < 1) value = 1;
+            input.value = value;
+            updateTotals();
+        }
+
+        function removeItem(btn) {
+            const item = btn.closest('.cart-item');
+            item.style.animation = 'slideOut 0.3s ease forwards';
+            setTimeout(() => {
+                item.remove();
+                updateTotals();
+            }, 300);
+        }
+
+        function updateTotals() {
+            // This would be replaced with actual calculation logic
+            console.log('Updating totals...');
+        }
+    </script>
+</body>
+
