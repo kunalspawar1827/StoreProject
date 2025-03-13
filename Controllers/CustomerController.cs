@@ -13,5 +13,11 @@ namespace Proj1.Controllers
         {
             return View();
         }
+
+        
+        public IActionResult OrderDetails()
+        {
+           return View();
+        }
     }
 }
